@@ -13,9 +13,11 @@ int main(){
         }
 
 
-        if ( (m>=1) && (m<=2) ){
+        if ( (m>=1) && (m<=3) ){
+            clock_t start = clock();
             typing(m-1);
-            printf("시간: %.1f\n정확도: %.1f%%\n", 0, calculate_accurate(m-1));
+            double typing_time = (clock()-(double)start)/1000;
+            printf("시간: %.1f\n정확도: %.1f%%\n", typing_time, calculate_accurate(m-1));
             printf("계속하려면 1, 끝내시려면 0을 입력해주세요.\n");
             int n;
             scanf("%d", &n);
