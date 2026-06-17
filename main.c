@@ -1,20 +1,37 @@
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 #include "header.h"
 
-char str[100][100][1000] = { {"test1", "test2", "*"}, {"apple", "banana", "*"} };
-char input[100][1000] = {"test1", "te", "end"};
-
-int main() {
+int main(){
     start();
-    while (1) {
-        int menu = select_menu();
-        if(menu == 0)
-            break;
-        typing(input,menu);
+    while(1){
+        int m = select_menu();
+        if (m==0) {
+            printf("프로그램을 종료합니다.");
+            return 0;
+        }
+
+
+        if ( (m>=1) && (m<=2) ){
+            typing(m-1);
+            printf("시간: %.1f\n정확도: %.1f%%\n", 0, calculate_accurate(m-1));
+            printf("계속하려면 1, 끝내시려면 0을 입력해주세요.\n");
+            int n;
+            scanf("%d", &n);
+            while(getchar() != '\n');
+            if (n==0) {
+                printf("프로그램을 종료합니다.");
+                return 0;
+            }
+        }
     }
-    return 0;
+
+
+    //typing(0);
+    //printf("정확도: %f%%",calculate_accurate(0));
 }
+
 
 void start() {
     printf("------------------------------\n");
@@ -29,6 +46,7 @@ int select_menu() {
     printf("------------------------------\n");
     printf("메뉴 선택 : ");
     scanf("%d",&menu);
+    getchar();
     switch (menu) {
     case 1:
         printf("단어 연습을 시작합니다.\n");
@@ -47,7 +65,7 @@ int select_menu() {
         break;;
     default:
         printf("올바르지 못한 입력입니다.\n");
-        break;
+        return -1;
     }
     return menu;
 }
@@ -73,15 +91,19 @@ double calculate_accurate(int index){
     return 1.0*(sum-fail)/sum*100;
 }
 
-void typing(char input[100][1000],int n) //n은 select_menu에서 받은 메뉴 번호
+void typing(int n)
 {
-   int i;
-   for (i = 0; i < sizeof(input[100]); i++)
-   {
-       printf("%s\n> ",str[n-1][i]);
-       fgets(input[i], sizeof(input[100]),stdin);
-       input[i][strcspn(input[i], "\n")] = '\0';
-   }
-   input[i+1][0] = '*';
+    printf("위의 텍스트를 따라서 입력해주세요.\n");
+    int i = 0;
+    while(str[n][i][0]!='*'){
+        printf("# ");
+        puts(str[n][i]);
+        printf("> ");
+        fgets(input[i],sizeof(input[i]),stdin);
+        input[i][strcspn(input[i], "\n")] = '\0';
+        i++;
+    }
 }
+
+
 

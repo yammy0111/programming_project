@@ -1,0 +1,25 @@
+{
+    "code-runner.saveFileBeforeRun": true,
+    "code-runner.runInTerminal": true,
+    "editor.tabSize": 4,
+    "terminal.integrated.profiles.windows": {
+        
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": ["/k", "chcp 65001"],
+            "icon": "terminal-cmd"
+        }
+        
+    },
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "code-runner.executorMap": {
+        
+        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        
+    },
+    "C_Cpp.default.compilerPath": "cl.exe",
+    
+}
