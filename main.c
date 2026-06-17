@@ -36,6 +36,13 @@ int main(){
 
 
 void start() {
+    int total_tried = 0;
+    struct record_type record[1000] = {0,0};
+
+    for(int i = 0;i < 100;i++){
+        printf("%f %f\n", record[i].time, record[i].accurate);
+    }
+
     printf("------------------------------\n");
     printf("           타자 연습기         \n");
     printf("------------------------------\n");
