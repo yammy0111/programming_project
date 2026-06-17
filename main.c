@@ -39,10 +39,6 @@ void start() {
     int total_tried = 0;
     struct record_type record[1000] = {0,0};
 
-    for(int i = 0;i < 100;i++){
-        printf("%f %f\n", record[i].time, record[i].accurate);
-    }
-
     printf("------------------------------\n");
     printf("           타자 연습기         \n");
     printf("------------------------------\n");
@@ -51,7 +47,7 @@ void start() {
 int select_menu() {
     int menu;
     printf("--------원하는 주제 선택-------\n");
-    printf("1. 단어\n2. 문장\n3. 장문\n0.종료\n");
+    printf("1. 단어\n2. 문장\n3. 장문\n0. 종료\n");
     printf("------------------------------\n");
     printf("메뉴 선택 : ");
     scanf("%d",&menu);
