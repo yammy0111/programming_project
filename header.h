@@ -3,6 +3,7 @@ int select_menu();
 void typing(int);
 double calculate_accurate(int);
 int result(int,int);
+void print_record();
 
 char str[100][100][1000] = { {
     "hesitate", "corporate", "destination", "gravity",
@@ -31,6 +32,7 @@ char input[100][1000] = {""};
 struct record_type/*저장용 구조체*/ {
     double time;
     double accurate;
+    char type[100];
 };
 struct record_type record[1000] = {0,0};
 int total_tried = 0;

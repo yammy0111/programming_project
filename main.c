@@ -8,14 +8,7 @@ int main(){
     while(1) {
         int m = select_menu();
         if (m==0) return 0;
-        else if (m==9) {
-            if(total_tried==0) printf("기록이 없습니다.\n");
-            for(int i = 0;i < total_tried;i++){
-                printf("항목: %s 시간: %.1f초 정확도: %.1f%%\n", "test", record[i].time, record[i].accurate);
-            }
-            printf("기록 확인을 종료하려면 엔터키를 눌러주세요");
-            while(getchar()!='\n');
-        }
+        else if (m==9) print_record();
         else if ( (m>=1) && (m<=3) ){
             clock_t start = clock();
             typing(m-1);
@@ -25,7 +18,7 @@ int main(){
 }
 
 void start()/*시작 전 처리*/ {
-
+    struct record_type record[1000] = {0,0,0};
     printf("-------------------------------\n");
     printf("-         타자 연습기         -\n");
     printf("-------------------------------\n");
@@ -97,6 +90,9 @@ int result(int m, int start) {
     printf("시간: %.1f초\n정확도: %.1f%%\n", typing_time, accurate);
     record[total_tried].time = typing_time;
     record[total_tried].accurate = accurate;
+    if (m==1) strcpy(record[total_tried].type,"단어");
+    else if (m==2) strcpy(record[total_tried].type,"문장");
+    else if (m==3) strcpy(record[total_tried].type,"장문");
     total_tried+=1;
     printf("계속하려면 1, 끝내시려면 0을 입력해주세요.\n");
     int n;
@@ -107,4 +103,13 @@ int result(int m, int start) {
             return 0;
     }
     else return 1;
+}
+
+void print_record(){
+    if(total_tried==0) printf("기록이 없습니다.\n");
+    for(int i = 0;i < total_tried;i++){
+        printf("항목: %s | 시간: %.1f초 | 정확도: %.1f%%\n", record[i].type, record[i].time, record[i].accurate);
+    }
+    printf("기록 확인을 종료하려면 엔터키를 눌러주세요");
+    while(getchar()!='\n');
 }
