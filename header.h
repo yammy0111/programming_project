@@ -12,14 +12,14 @@ char str[100][100][1000] = { {
     "enlist", "transplant", "oppress", "accommodate",
     "radioactive", "predominant", "breathtaking",
     "proportion", "preoccupation", "*"}/*단어*/, {
-    "A big fish in a small pond", "It never rains but it pours",
+    "A big fish in a small pond", /*"It never rains but it pours",
     "A bad workman blames his tools", "Every dog has his day",
     "Every cloud has a silver lining", "Familiarity breeds contempt",
     "The early bird catches the worm", "A sound mind in a sound body",
     "Sleep is better than medicine", "There’s no place like home", 
     "Better late than never", "Actions speak louder than words",
     "Lovers are fools", "A watched pot never boils",
-    "You can’t have your cake and eat it too", "*"}/*문장*/, {
+    "You can’t have your cake and eat it too",*/ "*"}/*문장*/, {
     "Shame is about who we are, and guilt is about our behaviors.",
     "We feel guilty when we hold up something we’ve done or failed",
     "to do against the kind of person we want to be.",

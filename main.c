@@ -12,7 +12,7 @@ int main(){
         else if ( (m>=1) && (m<=3) ){
             clock_t start = clock();
             typing(m-1);
-            if(result(m-1,start)==0) return 0;
+            if(result(m,start)==0) return 0;
         }
     }
 }
