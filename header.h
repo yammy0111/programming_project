@@ -26,7 +26,13 @@ char str[100][100][1000] = { {
     "It’s an uncomfortable feeling, but one that’s helpful.",
     "When we apologize for something we’ve done, make amends to others,",
     "or change a behavior that we don’t feel good about, guilt is most often the motivator.",
-    "Guilt is just as powerful as shame,", "*"}/*장문*/ 
+    "Guilt is just as powerful as shame,",
+    "but its effect is often positive while shame often is destructive.",
+    "When we see people apologize, make amends,",
+    "or replace negative behaviors with more positive ones,",
+    "guilt is often the motivator, not shame.",
+    "In fact, in my research, I found that shame corrodes the part of us that",
+    "believes we can change and do better.", "*"}/*장문*/ 
 };
 char input[100][1000] = {""};
 struct record_type/*저장용 구조체*/ {
