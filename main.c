@@ -13,6 +13,8 @@ int main(){
             for(int i = 0;i < total_tried;i++){
                 printf("항목: %s 시간: %.1f초 정확도: %.1f%%\n", "test", record[i].time, record[i].accurate);
             }
+            printf("기록 확인을 종료하려면 엔터키를 눌러주세요");
+            while(getchar()=='\n');
         }
         else if ( (m>=1) && (m<=3) ){
             clock_t start = clock();
