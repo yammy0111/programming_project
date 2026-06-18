@@ -19,20 +19,7 @@ int main(){
         else if ( (m>=1) && (m<=3) ){
             clock_t start = clock();
             typing(m-1);
-            double typing_time = (clock()-(double)start)/1000;
-            double accurate = calculate_accurate(m-1);
-            printf("시간: %.1f초\n정확도: %.1f%%\n", typing_time, accurate);
-            record[total_tried].time = typing_time;
-            record[total_tried].accurate = accurate;
-            total_tried+=1;
-            printf("계속하려면 1, 끝내시려면 0을 입력해주세요.\n");
-            int n;
-            scanf("%d", &n);
-            while(getchar() != '\n');
-            if (n==0) {
-                printf("프로그램을 종료합니다.");
-                return 0;
-            }
+            if(result(m-1,start)==0) return 0;
         }
     }
 }
@@ -102,4 +89,22 @@ void typing(int n) /*타자 입력*/ {
         input[i][strcspn(input[i], "\n")] = '\0';
         i++;
     }
+}
+
+int result(int m, int start) {
+    double typing_time = (clock()-(double)start)/1000;
+    double accurate = calculate_accurate(m-1);
+    printf("시간: %.1f초\n정확도: %.1f%%\n", typing_time, accurate);
+    record[total_tried].time = typing_time;
+    record[total_tried].accurate = accurate;
+    total_tried+=1;
+    printf("계속하려면 1, 끝내시려면 0을 입력해주세요.\n");
+    int n;
+    scanf("%d", &n);
+    while(getchar() != '\n');
+    if (n==0) {
+    printf("프로그램을 종료합니다.");
+            return 0;
+    }
+    else return 1;
 }
