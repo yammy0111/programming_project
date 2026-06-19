@@ -68,6 +68,11 @@ double calculate_accurate(int index)/*정확도 계산*/ {
         }
         i++;
     }
+    for(int i = 0; i<100;i++) {
+        for(int j = 0; j<1000; j++) {
+            input[i][j] = 0;
+        }
+    }
     return 1.0*(sum-fail)/sum*100;
 }
 
