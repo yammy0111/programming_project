@@ -68,11 +68,7 @@ double calculate_accurate(int index)/*정확도 계산*/ {
         }
         i++;
     }
-    for(int i = 0; i<100;i++) {
-        for(int j = 0; j<1000; j++) {
-            input[i][j] = 0;
-        }
-    }
+    
     return 1.0*(sum-fail)/sum*100;
 }
 
@@ -92,7 +88,16 @@ void typing(int n) /*타자 입력*/ {
 int result(int m, int start) {
     double typing_time = (clock()-(double)start)/1000;
     double accurate = calculate_accurate(m-1);
-    printf("시간: %.1f초\n정확도: %.1f%%\n", typing_time, accurate);
+    int input_num;
+    for(int i = 0; i<100;i++) {
+        for(int j = 0; j<1000; j++) {
+            if (input[i][j]) {
+                input_num += 1;
+                input[i][j] = 0;
+            }
+        }
+    }
+    printf("분당 타자 수: %d\n시간: %.1f초\n정확도: %.1f%%\n",(int)typing_time ? input_num/((int)typing_time*60) : input_num, typing_time, accurate);
     record[total_tried].time = typing_time;
     record[total_tried].accurate = accurate;
     if (m==1) strcpy(record[total_tried].type,"단어");
