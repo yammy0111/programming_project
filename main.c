@@ -25,12 +25,13 @@ void start()/*시작 전 처리*/ {
 }
 
 int select_menu()/*메뉴 선택*/ {
-    int menu;
+    char menu;
     printf("--------원하는 주제 선택-------\n");
     printf("1. 단어\n2. 문장\n3. 장문\n9. 기록\n0. 종료\n");
     printf("------------------------------\n");
     printf("메뉴 선택 : ");
-    scanf("%d",&menu);
+    scanf(" %c",&menu);
+    menu -= 48;
     while(getchar() != '\n');
     switch (menu) {
     case 1:
