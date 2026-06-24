@@ -87,7 +87,7 @@ void typing(int n) /*타자 입력*/ {
 }
 
 int result(int m, int start) {
-    double typing_time = (clock()-(double)start)/1000;
+    double typing_time = (clock()-(double)start)/CLOCKS_PER_SEC;
     double accurate = calculate_accurate(m-1);
     int input_num;
     for(int i = 0; i<100;i++) {
