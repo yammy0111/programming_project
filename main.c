@@ -98,7 +98,7 @@ int result(int m, int start) {
             }
         }
     }
-    printf("분당 타자 수: %d\n시간: %.1f초\n정확도: %.1f%%\n",(int)typing_time>0 ? (int)input_num/(typing_time/60) : input_num, typing_time, accurate);
+    printf("분당 타자 수: %d\n시간: %.1f초\n정확도: %.1f%%\n",(int)typing_time==0 ? (int)input_num/(int)(typing_time/60) : input_num, typing_time, accurate);
     record[total_tried].time = typing_time;
     record[total_tried].accurate = accurate;
     if (m==1) strcpy(record[total_tried].type,"단어");
