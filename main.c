@@ -89,7 +89,7 @@ void typing(int n) /*타자 입력*/ {
 int result(int m, int start) /*결과(정확도, 시간, 타자수) 출력*/ {
     double typing_time = (clock()-(double)start)/CLOCKS_PER_SEC;
     double accurate = calculate_accurate(m-1); //정확도
-    int input_num; //총 타자수
+    int input_num = 0; //총 타자수
     for(int i = 0; i<100;i++) /*입력 초기화*/{
         for(int j = 0; j<1000; j++) {
             if (input[i][j]) {

@@ -38,7 +38,7 @@ char input[100][1000] = {""};
 struct record_type/*저장용 구조체*/ {
     double time; //걸린 시간
     double accurate; //정확도
-    int tying_speed; //타자 속도(분당 타자 수)
+    double tying_speed; //타자 속도(분당 타자 수)
     char type[100]; //연습 종류(장문,문장,단어)
 };
 struct record_type record[1000];
