@@ -36,9 +36,9 @@ char str[100][100][1000] = { {
 };
 char input[100][1000] = {""};
 struct record_type/*저장용 구조체*/ {
-    double time;
-    double accurate;
-    char type[100];
+    double time; //걸린 시간
+    double accurate; //정확도
+    char type[100]; //연습 종류(장문,문장,단어)
 };
 struct record_type record[1000] = {0,0};
-int total_tried = 0;
+int total_tried = 0; //전채 연습 수(기록 번효용)

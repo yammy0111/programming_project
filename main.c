@@ -6,11 +6,11 @@
 int main(){
     start();
     while(1) {
-        int m = select_menu();
+        int m = select_menu(); //메뉴 입력 받기
         if (m==0) return 0;
-        else if (m==9) print_record();
-        else if ( (m>=1) && (m<=3) ){
-            clock_t start = clock();
+        else if (m==9) print_record(); //기록 출력
+        else if ( (m>=1) && (m<=3) ){ 
+            clock_t start = clock();//타자 연습 시작
             typing(m-1);
             if(result(m,start)==0) return 0;
         }
@@ -86,11 +86,11 @@ void typing(int n) /*타자 입력*/ {
     }
 }
 
-int result(int m, int start) {
+int result(int m, int start) /*결과(정확도, 시간, 타자수) 출력*/ {
     double typing_time = (clock()-(double)start)/CLOCKS_PER_SEC;
-    double accurate = calculate_accurate(m-1);
-    int input_num;
-    for(int i = 0; i<100;i++) {
+    double accurate = calculate_accurate(m-1); //정확도
+    int input_num; //총 타자수
+    for(int i = 0; i<100;i++) /*입력 초기화*/{
         for(int j = 0; j<1000; j++) {
             if (input[i][j]) {
                 input_num += 1;
@@ -99,7 +99,7 @@ int result(int m, int start) {
         }
     }
     printf("분당 타자 수: %d\n시간: %.1f초\n정확도: %.1f%%\n",((int)typing_time)!=0 ? (int)(input_num/(typing_time/60)) : input_num*60, typing_time, accurate);
-    record[total_tried].time = typing_time;
+    record[total_tried].time = typing_time; //기록 저장
     record[total_tried].accurate = accurate;
     if (m==1) strcpy(record[total_tried].type,"단어");
     else if (m==2) strcpy(record[total_tried].type,"문장");
@@ -116,7 +116,7 @@ int result(int m, int start) {
     else return 1;
 }
 
-void print_record(){
+void print_record()/*기록 출력*/ {
     if(total_tried==0) printf("기록이 없습니다.\n");
     for(int i = 0;i < total_tried;i++){
         printf("항목: %s | 시간: %.1f초 | 정확도: %.1f%%\n", record[i].type, record[i].time, record[i].accurate);
