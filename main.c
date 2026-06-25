@@ -18,7 +18,7 @@ int main(){
 }
 
 void start()/*시작 전 처리*/ {
-    struct record_type record[1000] = {0,0,0};
+    struct record_type record[1000] = {0,0,0,0};
     printf("-------------------------------\n");
     printf("-         타자 연습기         -\n");
     printf("-------------------------------\n");
@@ -101,6 +101,7 @@ int result(int m, int start) /*결과(정확도, 시간, 타자수) 출력*/ {
     printf("분당 타자 수: %d\n시간: %.1f초\n정확도: %.1f%%\n",((int)typing_time)!=0 ? (int)(input_num/(typing_time/60)) : input_num*60, typing_time, accurate);
     record[total_tried].time = typing_time; //기록 저장
     record[total_tried].accurate = accurate;
+    record[total_tried].tying_speed = (((int)typing_time)!=0 ? (int)(input_num/(typing_time/60)) : input_num*60);
     if (m==1) strcpy(record[total_tried].type,"단어");
     else if (m==2) strcpy(record[total_tried].type,"문장");
     else if (m==3) strcpy(record[total_tried].type,"장문");
@@ -119,7 +120,7 @@ int result(int m, int start) /*결과(정확도, 시간, 타자수) 출력*/ {
 void print_record()/*기록 출력*/ {
     if(total_tried==0) printf("기록이 없습니다.\n");
     for(int i = 0;i < total_tried;i++){
-        printf("항목: %s | 시간: %.1f초 | 정확도: %.1f%%\n", record[i].type, record[i].time, record[i].accurate);
+        printf("항목: %s | 분당 타자 수: %d | 시간: %.1f초 | 정확도: %.1f%%\n",record[i].type, record[i].tying_speed, record[i].time, record[i].accurate);
     }
     printf("기록 확인을 종료하려면 엔터키를 눌러주세요");
     while(getchar()!='\n');
